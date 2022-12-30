@@ -1,0 +1,58 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+    <div class="post">
+        {% if post.published_date %}
+            <div class="date">
+                {{ post.published_date }}
+            </div>
+        {% endif %}
+        <a class="btn btn-default" href="{% url 'post_edit' pk=post.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
+        <h1>{{ post.title }}</h1>
+        <div id="div1">
+        <h3>Ár, költségek</h3>
+        <li>Vételár: {{post.price}} FT</li>
+        <hr>
+        <h3>Általános adatok</h3>
+        <li>Évjárat: {{post.evjarat}}</li>
+        <li>Állapot: {{post.allapot}}</li>
+        <li>Kivitel: {{post.kivitel}}</li>
+        <hr>
+        <h3>Jármű adatok</h3>
+        <li>Km. óra állás: {{post.kmora}} km</li>
+        <li>Szállítható szem.száma: {{post.szemelyek}} fő</li>
+        <li>Ajtók száma: {{post.ajtok}}</li>
+        <li>Szín: {{post.szin}}</li>
+        <li>Kárpit színe: {{post.karpit}}</li>
+        <li>Saját tömeg: {{post.sajattomeg}} kg</li>
+        <li>Teljes tömeg: {{post.teljestomeg}} kg</li>
+        <li>Csomagtartó: {{post.Csomagtarto}} liter</li>
+        <li>Klíma fajtája: {{post.klima}}</li>
+        <hr>
+        <h3>Motor adatok</h3>
+        <li>Üzemanyag: {{post.uzemanyag}}</li>
+        <li>Hengerűrtartalom: {{post.kobcenti}} cm<sup>3</sup></li> 
+        <li>Teljesítmény: {{post.kw}}KW {{post.le}}LE</li>
+        <li>Henger-elrendezés: {{post.henger}}</li>
+        <li>Hajtás: {{post.hajtas}}</li>
+        <li>Sebességváltó: {{post.sebessegvalto}}</li>
+        <hr>
+        <h3>Okmányok</h3>
+        <li>Okmányok jellege: {{post.okmanyok}}</li>
+        <li>Müszaki vizsga érvényes: {{post.muszaki}}</li>
+        <hr>
+        <h3>Abrocs</h3>
+        <li>Nyári gumi mérete: {{post.gumimeret}}</li>
+        <hr>
+        <h3>Leírás</h3>
+        <p> {{post.text|linebreaksbr}}</p>
+
+        </div>
+       
+       
+        <div id="div2"> 
+        <img src="{{post.image.url}}">
+        </div>
+       
+    </div>
+{% endblock %}
